@@ -3,7 +3,7 @@ import React from "react"
 export default async function HomePage(){
     const response = await fetch(
         'https://jsonplaceholder.typicode.com/users',
-        {cache: 'no-store'}
+        { next: { revalidate: 10 } }
     )
     const users = await response.json()
     return(
